@@ -1,0 +1,28 @@
+
+server:
+  port: 9090
+
+eureka:
+  client:
+    service-url:
+      #用来指定注册服务中心地址
+      defaultZone: http://localhost:1111/eureka/,http://localhost:1112/eureka/
+  #instance:
+    #instance-id: productService
+    #prefer-ip-address: true
+
+spring:
+  application:
+    name: product-service
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/ecshop
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.neu.product_service.domain
+  configuration:
+    cache-enabled: true
+    lazy-loading-enabled: true
